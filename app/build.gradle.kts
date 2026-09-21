@@ -53,4 +53,7 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
     // ViewModel para Jetpack Compose
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    //Navegación
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.compose.material.icons.extended)
 }
