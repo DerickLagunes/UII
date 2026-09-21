@@ -7,21 +7,25 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import mx.edu.utez.derick.ui.screens.conversor.ConversorScreen
-import mx.edu.utez.derick.ui.theme.ConversorDivisasTheme
+import androidx.navigation.compose.rememberNavController
+import mx.edu.utez.derick.ui.navigation.AppNavGraph
+import mx.edu.utez.derick.ui.theme.ProyectoTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         setContent {
-            ConversorDivisasTheme {
+            ProyectoTheme( ) {
+                val navController = rememberNavController()
+
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    ConversorScreen(
+                    AppNavGraph(
+                        navController = navController,
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -33,7 +37,8 @@ class MainActivity : ComponentActivity() {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    ConversorDivisasTheme {
-        ConversorScreen( )
+    ProyectoTheme {
+        val navController = rememberNavController()
+        AppNavGraph(navController = navController)
     }
 }
