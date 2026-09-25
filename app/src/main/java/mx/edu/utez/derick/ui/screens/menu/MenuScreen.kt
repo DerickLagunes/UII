@@ -17,15 +17,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import mx.edu.utez.derick.R
 
+
 @Composable
 fun MenuScreen(
     onNavigateToConversor: () -> Unit,
     onNavigateToPropinas: () -> Unit,
+    onNavigateToVideoJuegos: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -37,12 +40,13 @@ fun MenuScreen(
     ) {
 
         Image(
-            painter = painterResource(id = R.drawable.tools), // Reemplazar con tu imagen (ej. R.drawable.logo_herramientas)
+            painter = painterResource(id = R.drawable.logo), // Reemplazar con tu imagen (ej. R.drawable.logo_herramientas)
             contentDescription = "Logo de Herramientas",
             contentScale = ContentScale.Crop, // Escala y recorta para llenar la forma
             modifier = Modifier
                 .size(120.dp)                 // Tamaño de la imagen
                 .clip(CircleShape)            // Recorte en forma de círculo
+                .rotate(90.0F)
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -71,6 +75,16 @@ fun MenuScreen(
                 .padding(vertical = 8.dp)
         ) {
             Text("Calculadora de Propinas")
+        }
+
+        // Botón hacia Propinas
+        Button(
+            onClick = onNavigateToVideoJuegos,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        ) {
+            Text("Mis juegos")
         }
     }
 }
