@@ -7,6 +7,8 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import mx.edu.utez.derick.ui.screens.cancion.CancionScreen
+import mx.edu.utez.derick.ui.screens.cancion.CancionViewModel
 import mx.edu.utez.derick.ui.screens.conversor.ConversorScreen
 import mx.edu.utez.derick.ui.screens.menu.MenuScreen
 import mx.edu.utez.derick.ui.screens.persona.PersonaScreen
@@ -22,6 +24,7 @@ sealed class Route(val path: String) {
     object Propinas : Route("propinas")
     object VideoJuegos : Route("videojuegos")
     object Personas : Route("personas")
+    object Canciones : Route("canciones")
 
 }
 
@@ -43,6 +46,7 @@ fun AppNavGraph(
                 onNavigateToPropinas = { navController.navigate(Route.Propinas.path) },
                 onNavigateToVideoJuegos = { navController.navigate(Route.VideoJuegos.path) },
                 onNavigateToPersonas = { navController.navigate(Route.Personas.path) },
+                onNavigateToCanciones = { navController.navigate(Route.Canciones.path) },
             )
         }
 
@@ -66,6 +70,11 @@ fun AppNavGraph(
         composable(Route.Personas.path) {
             PersonaScreen(
                 PersonaViewModel(),navController
+            )
+        }
+        composable(Route.Canciones.path) {
+            CancionScreen(
+                CancionViewModel()
             )
         }
     }

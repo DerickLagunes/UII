@@ -30,6 +30,7 @@ fun MenuScreen(
     onNavigateToPropinas: () -> Unit,
     onNavigateToVideoJuegos: () -> Unit,
     onNavigateToPersonas: () -> Unit,
+    onNavigateToCanciones: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -95,6 +96,14 @@ fun MenuScreen(
                 .padding(vertical = 8.dp)
         ) {
             Text("Mis personas")
+        }
+        Button(
+            onClick = onNavigateToCanciones,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        ) {
+            Text("Mis canciones")
         }
     }
 }
