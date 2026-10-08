@@ -9,6 +9,8 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import mx.edu.utez.derick.ui.screens.conversor.ConversorScreen
 import mx.edu.utez.derick.ui.screens.menu.MenuScreen
+import mx.edu.utez.derick.ui.screens.persona.PersonaScreen
+import mx.edu.utez.derick.ui.screens.persona.PersonaViewModel
 import mx.edu.utez.derick.ui.screens.propinas.PropinasScreen
 import mx.edu.utez.derick.ui.screens.videojuegos.VideoJuegoScreen
 import mx.edu.utez.derick.ui.screens.videojuegos.VideoJuegosViewModel
@@ -19,6 +21,7 @@ sealed class Route(val path: String) {
     object Conversor : Route("conversor")
     object Propinas : Route("propinas")
     object VideoJuegos : Route("videojuegos")
+    object Personas : Route("personas")
 
 }
 
@@ -38,7 +41,8 @@ fun AppNavGraph(
             MenuScreen(
                 onNavigateToConversor = { navController.navigate(Route.Conversor.path) },
                 onNavigateToPropinas = { navController.navigate(Route.Propinas.path) },
-                onNavigateToVideoJuegos = { navController.navigate(Route.VideoJuegos.path) }
+                onNavigateToVideoJuegos = { navController.navigate(Route.VideoJuegos.path) },
+                onNavigateToPersonas = { navController.navigate(Route.Personas.path) },
             )
         }
 
@@ -57,6 +61,11 @@ fun AppNavGraph(
         }
         composable(Route.VideoJuegos.path) {
             VideoJuegoScreen(VideoJuegosViewModel()
+            )
+        }
+        composable(Route.Personas.path) {
+            PersonaScreen(
+                PersonaViewModel(),navController
             )
         }
     }

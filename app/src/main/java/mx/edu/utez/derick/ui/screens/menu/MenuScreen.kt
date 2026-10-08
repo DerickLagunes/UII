@@ -29,6 +29,7 @@ fun MenuScreen(
     onNavigateToConversor: () -> Unit,
     onNavigateToPropinas: () -> Unit,
     onNavigateToVideoJuegos: () -> Unit,
+    onNavigateToPersonas: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     Column(
@@ -85,6 +86,15 @@ fun MenuScreen(
                 .padding(vertical = 8.dp)
         ) {
             Text("Mis juegos")
+        }
+
+        Button(
+            onClick = onNavigateToPersonas,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 8.dp)
+        ) {
+            Text("Mis personas")
         }
     }
 }
